@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumni Mentorship, Career Launchpad</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Career Launchpad home">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 2L2 12l14 10 14-10L16 2z" fill="#1a4b8c"/>
+          <path d="M5 17v7c0 1 5 5 11 5s11-4 11-5v-7L16 24 5 17z" fill="#0f7a4e"/>
+          <circle cx="28" cy="12" r="2" fill="#f59e0b"/>
+          <line x1="28" y1="14" x2="28" y2="24" stroke="#f59e0b" stroke-width="2"/>
+        </svg>
+        Career Launchpad
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile-builder.html">Profile Builder</a></li>
+          <li><a href="resources.html">Career Resources</a></li>
+          <li><a href="feedback-board.html">Feedback Board</a></li>
+          <li><a href="mentorship.html" class="active" aria-current="page">Mentorship</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title">Alumni Mentorship Board</h1>
+        <p class="section-subtitle">Connect with Rosebank College alumni who have been where you are. Ask questions, get career advice, and build your professional network.</p>
+
+        <!-- Notification Banner (RESPONDING interaction type) -->
+        <div class="notification-banner" role="alert">
+          <span aria-hidden="true">&#128276;</span>
+          <span>An alumni mentor replied to your question, <a href="#qa-threads">view reply below</a></span>
+        </div>
+
+        <!-- Mentor Cards -->
+        <div class="grid-4">
+          <article class="card mentor-card">
+            <div class="card-body">
+              <div class="mentor-avatar" aria-hidden="true">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <h3>Lindiwe Mthembu</h3>
+              <p class="mentor-role">Software Engineer at Discovery</p>
+              <div class="tags-container" style="justify-content:center;margin-bottom:16px;">
+                <span class="tag">Python</span>
+                <span class="tag">Cloud</span>
+              </div>
+              <button class="btn btn-primary btn-sm ask-question-btn" data-mentor="Lindiwe Mthembu" style="width:100%;">Ask a Question</button>
+            </div>
+          </article>
+
+          <article class="card mentor-card">
+            <div class="card-body">
+              <div class="mentor-avatar" aria-hidden="true">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <h3>Thabo Khumalo</h3>
+              <p class="mentor-role">Data Analyst at Standard Bank</p>
+              <div class="tags-container" style="justify-content:center;margin-bottom:16px;">
+                <span class="tag">SQL</span>
+                <span class="tag">Power BI</span>
+              </div>
+              <button class="btn btn-primary btn-sm ask-question-btn" data-mentor="Thabo Khumalo" style="width:100%;">Ask a Question</button>
+            </div>
+          </article>
+
+          <article class="card mentor-card">
+            <div class="card-body">
+              <div class="mentor-avatar" aria-hidden="true">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <h3>Ayanda Nkosi</h3>
+              <p class="mentor-role">UX Designer at Takealot</p>
+              <div class="tags-container" style="justify-content:center;margin-bottom:16px;">
+                <span class="tag">UI/UX</span>
+                <span class="tag">Figma</span>
+              </div>
+              <button class="btn btn-primary btn-sm ask-question-btn" data-mentor="Ayanda Nkosi" style="width:100%;">Ask a Question</button>
+            </div>
+          </article>
+
+          <article class="card mentor-card">
+            <div class="card-body">
+              <div class="mentor-avatar" aria-hidden="true">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <h3>Zanele Dlamini</h3>
+              <p class="mentor-role">Project Manager at Accenture</p>
+              <div class="tags-container" style="justify-content:center;margin-bottom:16px;">
+                <span class="tag green">Agile</span>
+                <span class="tag green">Leadership</span>
+              </div>
+              <button class="btn btn-primary btn-sm ask-question-btn" data-mentor="Zanele Dlamini" style="width:100%;">Ask a Question</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Q&A Threads -->
+        <div id="qa-threads" style="margin-top:48px;">
+          <h2 style="margin-bottom:24px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:8px;" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Recent Q&amp;A
+          </h2>
+
+          <div class="qa-thread">
+            <div class="qa-question">
+              <div class="qa-avatar" aria-hidden="true">KN</div>
+              <div>
+                <strong>Keith Ndebele</strong>
+                <span class="qa-meta">asked Lindiwe Mthembu &middot; 3 days ago</span>
+                <p style="margin-top:8px;">How did you transition from being a student at Rosebank College to a software engineering role at Discovery? What was the most important thing you did during your final year?</p>
+              </div>
+            </div>
+            <div class="qa-answer">
+              <div class="qa-avatar" aria-hidden="true">LM</div>
+              <div>
+                <strong>Lindiwe Mthembu</strong>
+                <span class="qa-meta">replied &middot; 1 day ago</span>
+                <p style="margin-top:8px;">Great question, Keith! The most important thing I did was build real projects outside of coursework. I contributed to an open-source project and built a small app that solved a real problem for local spaza shops. During interviews, employers cared far more about what I had built than my grades. Start building now, share it on GitHub, and don't be afraid to apply even if you feel you're not ready. You learn the most in your first role.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="qa-thread">
+            <div class="qa-question">
+              <div class="qa-avatar" aria-hidden="true">TM</div>
+              <div>
+                <strong>Thandi Mokoena</strong>
+                <span class="qa-meta">asked Zanele Dlamini &middot; 5 days ago</span>
+                <p style="margin-top:8px;">I'm interested in project management but I'm studying business management, not IT. Is it possible to move into tech project management without a technical degree?</p>
+              </div>
+            </div>
+            <div class="qa-answer">
+              <div class="qa-avatar" aria-hidden="true">ZD</div>
+              <div>
+                <strong>Zanele Dlamini</strong>
+                <span class="qa-meta">replied &middot; 4 days ago</span>
+                <p style="margin-top:8px;">Absolutely, Thandi! I started in business management too. The key is learning the basics of Agile and Scrum, you can get a free Scrum Fundamentals certification online. Combine that with your business skills and you'll be a strong candidate. Many tech companies specifically want PMs who understand the business side, not just the code. Your background is an asset, not a limitation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Mentor Question Modal -->
+  <div id="mentor-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="mentor-modal-name">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="mentor-modal-name">Ask a question</h3>
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="mentor-question">Your Question</label>
+          <span class="hint">Be specific, mentors are more likely to respond to focused, thoughtful questions.</span>
+          <textarea id="mentor-question" class="form-input" rows="5" placeholder="e.g. What skills should I focus on in my final year to be competitive for junior developer roles?"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost" onclick="closeModal(document.getElementById('mentor-modal'))">Cancel</button>
+        <button id="send-question" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Send Question
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Career Launchpad</h4>
+        <ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>For Students</h4>
+        <ul><li><a href="profile-builder.html">Build Your Profile</a></li><li><a href="feedback-board.html">Peer Feedback</a></li><li><a href="mentorship.html">Find a Mentor</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Career Launchpad, Rosebank College. Built with purpose for South African students.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Resources, Career Launchpad</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Career Launchpad home">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 2L2 12l14 10 14-10L16 2z" fill="#1a4b8c"/>
+          <path d="M5 17v7c0 1 5 5 11 5s11-4 11-5v-7L16 24 5 17z" fill="#0f7a4e"/>
+          <circle cx="28" cy="12" r="2" fill="#f59e0b"/>
+          <line x1="28" y1="14" x2="28" y2="24" stroke="#f59e0b" stroke-width="2"/>
+        </svg>
+        Career Launchpad
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile-builder.html">Profile Builder</a></li>
+          <li><a href="resources.html" class="active" aria-current="page">Career Resources</a></li>
+          <li><a href="feedback-board.html">Feedback Board</a></li>
+          <li><a href="mentorship.html">Mentorship</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section">
+      <div class="container">
+        <h1 class="section-title">Career Resources</h1>
+        <p class="section-subtitle">Explore curated resources to help you navigate career paths, earn certifications, and find training opportunities in South Africa.</p>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <span class="search-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </span>
+          <label for="resource-search" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Search resources</label>
+          <input type="search" id="resource-search" class="form-input" placeholder="Search resources by keyword...">
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="tabs resource-tabs" role="tablist" aria-label="Filter resources by category">
+          <button class="tab-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="tab-btn" data-filter="career-paths" role="tab" aria-selected="false">Career Paths</button>
+          <button class="tab-btn" data-filter="certifications" role="tab" aria-selected="false">Certifications</button>
+          <button class="tab-btn" data-filter="training" role="tab" aria-selected="false">Training Opportunities</button>
+        </div>
+
+        <!-- Resource Cards Grid -->
+        <div class="grid-3" id="resources-grid">
+
+          <article class="card resource-card" data-category="career-paths">
+            <div class="card-body">
+              <span class="badge badge-blue">Career Paths</span>
+              <h3>Software Development in South Africa</h3>
+              <p>Explore the growing demand for software developers across Johannesburg, Cape Town, and Durban. Learn which languages and frameworks employers want most.</p>
+              <a href="#" class="btn btn-ghost btn-sm">View Resource &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card resource-card" data-category="certifications">
+            <div class="card-body">
+              <span class="badge badge-green">Certifications</span>
+              <h3>AWS Cloud Practitioner Certification</h3>
+              <p>A beginner-friendly cloud certification that South African employers increasingly look for. Free study resources and exam prep tips included.</p>
+              <a href="#" class="btn btn-ghost btn-sm">View Resource &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card resource-card" data-category="training">
+            <div class="card-body">
+              <span class="badge badge-gold">Training</span>
+              <h3>WeThinkCode_ Free Coding Programme</h3>
+              <p>A tuition-free, two-year software development programme based in Johannesburg and Cape Town. Open to South African youth aged 17-35.</p>
+              <a href="#" class="btn btn-ghost btn-sm">View Resource &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card resource-card" data-category="career-paths">
+            <div class="card-body">
+              <span class="badge badge-blue">Career Paths</span>
+              <h3>Data Analytics: A Growing Field</h3>
+              <p>Data-driven decision making is booming in SA's financial and retail sectors. See what skills you need and which companies are hiring graduates.</p>
+              <a href="#" class="btn btn-ghost btn-sm">View Resource &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card resource-card" data-category="certifications">
+            <div class="card-body">
+              <span class="badge badge-green">Certifications</span>
+              <h3>Google UX Design Certificate</h3>
+              <p>Earn a professional certificate in UX design through Coursera. Recognised by employers and a great portfolio booster for design-focused students.</p>
+              <a href="#" class="btn btn-ghost btn-sm">View Resource &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card resource-card" data-category="training">
+            <div class="card-body">
+              <span class="badge badge-gold">Training</span>
+              <h3>Harambee Youth Employment Accelerator</h3>
+              <p>Connects young South Africans to their first jobs through work readiness training, employer matching, and ongoing career support.</p>
+              <a href="#" class="btn btn-ghost btn-sm">View Resource &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card resource-card" data-category="career-paths">
+            <div class="card-body">
+              <span class="badge badge-blue">Career Paths</span>
+              <h3>Cybersecurity Careers in Africa</h3>
+              <p>With digital transformation accelerating across the continent, cybersecurity professionals are in high demand. Explore entry points and growth paths.</p>
+              <a href="#" class="btn btn-ghost btn-sm">View Resource &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card resource-card" data-category="certifications">
+            <div class="card-body">
+              <span class="badge badge-green">Certifications</span>
+              <h3>Microsoft Azure Fundamentals (AZ-900)</h3>
+              <p>An entry-level cloud certification covering core Azure services. Microsoft offers free learning paths and practice assessments to prepare.</p>
+              <a href="#" class="btn btn-ghost btn-sm">View Resource &rarr;</a>
+            </div>
+          </article>
+
+          <article class="card resource-card" data-category="training">
+            <div class="card-body">
+              <span class="badge badge-gold">Training</span>
+              <h3>CAPACITI Tech Career Accelerator</h3>
+              <p>Industry-led training programme offering 12-month placements in software development, data engineering, and cloud, based in Cape Town and Johannesburg.</p>
+              <a href="#" class="btn btn-ghost btn-sm">View Resource &rarr;</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Career Launchpad</h4>
+        <ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>For Students</h4>
+        <ul><li><a href="profile-builder.html">Build Your Profile</a></li><li><a href="feedback-board.html">Peer Feedback</a></li><li><a href="mentorship.html">Find a Mentor</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Career Launchpad, Rosebank College. Built with purpose for South African students.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

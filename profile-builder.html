@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Builder, Career Launchpad</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Career Launchpad home">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 2L2 12l14 10 14-10L16 2z" fill="#1a4b8c"/>
+          <path d="M5 17v7c0 1 5 5 11 5s11-4 11-5v-7L16 24 5 17z" fill="#0f7a4e"/>
+          <circle cx="28" cy="12" r="2" fill="#f59e0b"/>
+          <line x1="28" y1="14" x2="28" y2="24" stroke="#f59e0b" stroke-width="2"/>
+        </svg>
+        Career Launchpad
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile-builder.html" class="active" aria-current="page">Profile Builder</a></li>
+          <li><a href="resources.html">Career Resources</a></li>
+          <li><a href="feedback-board.html">Feedback Board</a></li>
+          <li><a href="mentorship.html">Mentorship</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section">
+      <div class="container" style="max-width:860px;">
+
+        <!-- Welcome Message (Emotional Design) -->
+        <div style="background:linear-gradient(135deg,#dbeafe,#d1fae5);border-radius:var(--radius-lg);padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;gap:12px;">
+          <span style="font-size:1.5rem;" aria-hidden="true">👋</span>
+          <div>
+            <strong style="font-size:1.05rem;">Welcome! Let's build your profile.</strong>
+            <p style="margin:0;font-size:0.9rem;color:var(--text-light);">Fill in each step to create a professional profile that helps you stand out to recruiters.</p>
+          </div>
+          <div id="autosave" class="autosave-indicator saved" style="margin-left:auto;" aria-live="polite">
+            <span class="autosave-dot"></span> All changes saved ✓
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-section" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Profile completion progress">
+          <div class="progress-header">
+            <span>Profile Completion</span>
+            <span class="progress-percentage" id="progress-pct">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill" style="width:0%;"></div>
+          </div>
+          <p class="progress-message" id="progress-msg" aria-live="polite">Just getting started, keep going!</p>
+        </div>
+
+        <!-- Step Indicators -->
+        <div class="wizard-steps" role="tablist" aria-label="Profile builder steps">
+          <div class="wizard-step active" role="tab" aria-selected="true">
+            <span class="step-num">1</span>
+            <span>Personal Info</span>
+          </div>
+          <div class="wizard-step" role="tab" aria-selected="false">
+            <span class="step-num">2</span>
+            <span>Education</span>
+          </div>
+          <div class="wizard-step" role="tab" aria-selected="false">
+            <span class="step-num">3</span>
+            <span>Skills</span>
+          </div>
+          <div class="wizard-step" role="tab" aria-selected="false">
+            <span class="step-num">4</span>
+            <span>Portfolio</span>
+          </div>
+          <div class="wizard-step" role="tab" aria-selected="false">
+            <span class="step-num">5</span>
+            <span>Review</span>
+          </div>
+        </div>
+
+        <!-- Wizard Form -->
+        <form id="profile-wizard" novalidate>
+
+          <!-- STEP 1: Personal Info -->
+          <div id="step-1" class="step-content active" role="tabpanel" aria-label="Step 1: Personal Information">
+            <h2>Personal Information</h2>
+            <p style="color:var(--text-light);margin-bottom:24px;">Tell us a bit about yourself. This information will appear at the top of your profile.</p>
+
+            <div class="form-group">
+              <label for="pb-name">Full Name <span style="color:var(--error);" aria-hidden="true">*</span></label>
+              <input type="text" id="pb-name" class="form-input" placeholder="e.g. Keith Ndebele" required aria-required="true" data-progress>
+            </div>
+            <div class="form-group">
+              <label for="pb-student-num">Student Number <span style="color:var(--error);" aria-hidden="true">*</span></label>
+              <span class="hint">Format: ST followed by 8 digits</span>
+              <input type="text" id="pb-student-num" class="form-input" placeholder="e.g. ST10447272" required aria-required="true" data-progress>
+            </div>
+            <div class="form-group">
+              <label for="pb-field">Field of Study <span style="color:var(--error);" aria-hidden="true">*</span></label>
+              <select id="pb-field" class="form-input" required aria-required="true" data-progress>
+                <option value="">Select your field of study</option>
+                <option value="bsc-it">BSc Information Technology</option>
+                <option value="bsc-cs">BSc Computer Science</option>
+                <option value="dip-business">Diploma in Business Management</option>
+                <option value="dip-marketing">Diploma in Marketing</option>
+                <option value="bcom-accounting">BCom Accounting</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="pb-linkedin">LinkedIn Profile URL</label>
+              <input type="url" id="pb-linkedin" class="form-input" placeholder="https://linkedin.com/in/your-name" data-progress>
+            </div>
+
+            <div class="step-actions">
+              <div></div>
+              <button type="button" class="btn btn-primary btn-next" onclick="nextStep()">Next: Education &rarr;</button>
+            </div>
+          </div>
+
+          <!-- STEP 2: Education -->
+          <div id="step-2" class="step-content" role="tabpanel" aria-label="Step 2: Education">
+            <h2>Education</h2>
+            <p style="color:var(--text-light);margin-bottom:24px;">Add your educational background. Recruiters value seeing your academic journey.</p>
+
+            <div class="form-group">
+              <label for="pb-institution">Institution <span style="color:var(--error);" aria-hidden="true">*</span></label>
+              <input type="text" id="pb-institution" class="form-input" placeholder="e.g. Rosebank College" required aria-required="true" data-progress>
+            </div>
+            <div class="form-group">
+              <label for="pb-qualification">Qualification <span style="color:var(--error);" aria-hidden="true">*</span></label>
+              <input type="text" id="pb-qualification" class="form-input" placeholder="e.g. BSc Information Technology" required aria-required="true" data-progress>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div class="form-group">
+                <label for="pb-year">Year of Study <span style="color:var(--error);" aria-hidden="true">*</span></label>
+                <select id="pb-year" class="form-input" required aria-required="true" data-progress>
+                  <option value="">Select year</option>
+                  <option value="1st">1st Year</option>
+                  <option value="2nd">2nd Year</option>
+                  <option value="3rd">3rd Year</option>
+                  <option value="postgrad">Postgraduate</option>
+                  <option value="alumni">Alumni</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="pb-average">Average Result</label>
+                <input type="text" id="pb-average" class="form-input" placeholder="e.g. 72%" data-progress>
+              </div>
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="btn btn-outline" onclick="prevStep()">&larr; Back</button>
+              <button type="button" class="btn btn-primary btn-next" onclick="nextStep()">Next: Skills &rarr;</button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Skills -->
+          <div id="step-3" class="step-content" role="tabpanel" aria-label="Step 3: Skills">
+            <h2>Skills</h2>
+            <p style="color:var(--text-light);margin-bottom:24px;">Add your technical and soft skills. Type a skill and press the + button to add it.</p>
+
+            <h4 style="margin-bottom:8px;">Technical Skills</h4>
+            <div class="add-skill-row">
+              <label for="tech-skill-input" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Add a technical skill</label>
+              <input type="text" id="tech-skill-input" class="form-input" placeholder="e.g. Python, JavaScript, SQL...">
+              <button type="button" id="add-tech-skill" class="btn btn-primary btn-sm" aria-label="Add technical skill">+ Add</button>
+            </div>
+
+            <h4 style="margin-top:24px;margin-bottom:8px;">Soft Skills</h4>
+            <div class="add-skill-row">
+              <label for="soft-skill-input" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Add a soft skill</label>
+              <input type="text" id="soft-skill-input" class="form-input" placeholder="e.g. Communication, Leadership...">
+              <button type="button" id="add-soft-skill" class="btn btn-secondary btn-sm" aria-label="Add soft skill">+ Add</button>
+            </div>
+
+            <h4 style="margin-top:24px;margin-bottom:12px;">Your Skills</h4>
+            <div id="skills-container" class="tags-container" aria-live="polite">
+              <p style="color:var(--text-light);font-size:0.9rem;font-style:italic;">No skills added yet. Add your first skill above.</p>
+            </div>
+
+            <div class="step-actions">
+              <button type="button" class="btn btn-outline" onclick="prevStep()">&larr; Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep()">Next: Portfolio &rarr;</button>
+            </div>
+          </div>
+
+          <!-- STEP 4: Portfolio -->
+          <div id="step-4" class="step-content" role="tabpanel" aria-label="Step 4: Portfolio">
+            <h2>Portfolio</h2>
+            <p style="color:var(--text-light);margin-bottom:24px;">Upload your CV and add links to projects or work you're proud of.</p>
+
+            <h4 style="margin-bottom:12px;">Upload Your CV</h4>
+            <div id="cv-upload-zone" class="upload-zone" role="button" tabindex="0" aria-label="Drag and drop your CV here, or click to browse files">
+              <div class="upload-icon" aria-hidden="true">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              </div>
+              <p><strong>Drag and drop your CV here</strong></p>
+              <p class="upload-hint">or click to browse, PDF, DOC, or DOCX (max 5MB)</p>
+              <input type="file" id="cv-file-input" accept=".pdf,.doc,.docx" style="display:none;" aria-label="Choose CV file">
+            </div>
+            <div id="upload-result" aria-live="polite"></div>
+
+            <h4 style="margin-top:32px;margin-bottom:12px;">Project Links</h4>
+            <div class="add-skill-row">
+              <label for="project-link-input" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Add a project link</label>
+              <input type="url" id="project-link-input" class="form-input" placeholder="https://github.com/your-project">
+              <button type="button" id="add-project-link" class="btn btn-primary btn-sm" aria-label="Add project link">+ Add</button>
+            </div>
+            <div id="project-links-list" class="project-links-list" aria-live="polite"></div>
+
+            <div class="step-actions">
+              <button type="button" class="btn btn-outline" onclick="prevStep()">&larr; Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep()">Next: Review &rarr;</button>
+            </div>
+          </div>
+
+          <!-- STEP 5: Personal Statement + Review -->
+          <div id="step-5" class="step-content" role="tabpanel" aria-label="Step 5: Personal Statement and Review">
+            <h2>Personal Statement</h2>
+            <p style="color:var(--text-light);margin-bottom:24px;">Write a brief statement about yourself, your goals, and what makes you unique. This is your chance to let your personality shine.</p>
+
+            <div class="form-group">
+              <label for="personal-statement">Your Personal Statement <span style="color:var(--error);" aria-hidden="true">*</span></label>
+              <span class="hint">Be authentic, recruiters value genuine voices over corporate buzzwords.</span>
+              <textarea id="personal-statement" class="form-input" rows="6" maxlength="500" required aria-required="true" data-progress placeholder="Tell recruiters who you are, what drives you, and where you're headed..."></textarea>
+              <div id="char-counter" class="char-counter" aria-live="polite">0 / 500 characters</div>
+            </div>
+
+            <h3 style="margin-top:32px;margin-bottom:16px;">Reorder Your Profile Sections</h3>
+            <p style="color:var(--text-light);margin-bottom:16px;">Drag and drop to arrange the order sections appear on your public profile.</p>
+
+            <ul id="reorder-list" class="reorder-list" aria-label="Drag to reorder profile sections">
+              <li class="reorder-item" draggable="true">
+                <span class="drag-handle" aria-hidden="true">&#9776;</span>
+                <span>Education</span>
+              </li>
+              <li class="reorder-item" draggable="true">
+                <span class="drag-handle" aria-hidden="true">&#9776;</span>
+                <span>Skills</span>
+              </li>
+              <li class="reorder-item" draggable="true">
+                <span class="drag-handle" aria-hidden="true">&#9776;</span>
+                <span>Portfolio</span>
+              </li>
+              <li class="reorder-item" draggable="true">
+                <span class="drag-handle" aria-hidden="true">&#9776;</span>
+                <span>Personal Statement</span>
+              </li>
+            </ul>
+
+            <div class="step-actions">
+              <button type="button" class="btn btn-outline" onclick="prevStep()">&larr; Back</button>
+              <button type="button" class="btn btn-accent btn-lg" onclick="generateProfile()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                Generate Profile Link
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Career Launchpad</h4>
+        <ul><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>For Students</h4>
+        <ul><li><a href="profile-builder.html">Build Your Profile</a></li><li><a href="feedback-board.html">Peer Feedback</a></li><li><a href="mentorship.html">Find a Mentor</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Career Launchpad, Rosebank College. Built with purpose for South African students.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
