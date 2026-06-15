@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    Career Launchpad, Shared JavaScript
    ============================================ */
 
@@ -139,6 +139,11 @@ function setupFormValidation(form, fieldIds) {
   updateSubmitState(form, fieldIds, submitBtn);
 }
 
+/*
+ * validateField — emotionally supportive error messages
+ * Following Norman (2013): good error design reduces
+ * negative affect and keeps users motivated to recover.
+ */
 function validateField(input) {
   const value = input.value.trim();
   const type = input.type;
@@ -148,22 +153,25 @@ function validateField(input) {
 
   if (!value) {
     valid = false;
-    message = `${input.previousElementSibling?.textContent || 'This field'} is required.`;
+    const labelText = input.labels?.[0]?.textContent?.replace('*','').trim()
+                   || input.previousElementSibling?.textContent?.replace('*','').trim()
+                   || 'This field';
+    message = `${labelText} is required — fill this in to continue.`;
   } else if (type === 'email' || id.includes('email')) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(value)) {
       valid = false;
-      message = 'Please enter a valid email address (e.g. keith@email.com).';
+      message = 'Double-check that — emails should look like: keith@email.com';
     }
   } else if (type === 'password' || id.includes('password')) {
     if (value.length < 8) {
       valid = false;
-      message = 'Password must be at least 8 characters.';
+      message = 'Almost there! Your password needs at least 8 characters.';
     }
-  } else if (id.includes('student-number')) {
+  } else if (id.includes('student-number') || id.includes('student-num')) {
     if (!/^ST\d{8}$/i.test(value)) {
       valid = false;
-      message = 'Student number must follow the format ST followed by 8 digits (e.g. ST10447272).';
+      message = 'No worries — student numbers follow this format: ST10447272 (ST + 8 digits).';
     }
   }
 
@@ -285,15 +293,21 @@ function updateProgress() {
   const bar = document.getElementById('progress-fill');
   const text = document.getElementById('progress-pct');
   const msg = document.getElementById('progress-msg');
+  const progressSection = document.querySelector('.progress-section');
 
   if (bar) bar.style.width = pct + '%';
   if (text) text.textContent = pct + '%';
 
+  // Update ARIA value for screen readers
+  if (progressSection) progressSection.setAttribute('aria-valuenow', pct);
+
   if (msg) {
-    if (pct < 30) msg.textContent = 'Just getting started, keep going!';
-    else if (pct < 60) msg.textContent = 'Great progress! Add more details to stand out.';
-    else if (pct < 90) msg.textContent = 'Almost there, add a personal statement to impress recruiters!';
-    else msg.textContent = 'Your profile is looking fantastic! Ready to generate your link.';
+    if (pct === 0)       msg.textContent = 'Just getting started, keep going!';
+    else if (pct < 30)   msg.textContent = 'Good start! Keep filling in your details.';
+    else if (pct < 60)   msg.textContent = 'Great progress! Add more details to stand out.';
+    else if (pct < 90)   msg.textContent = 'Almost there — add a personal statement to impress recruiters!';
+    else if (pct < 100)  msg.textContent = 'So close! Just a few more details.';
+    else                 msg.textContent = 'Your profile is looking fantastic! Ready to generate your link. 🎉';
   }
 }
 
@@ -466,8 +480,90 @@ function initCharacterCounter() {
   });
 }
 
+/* ============================================
+   GENERATE PROFILE — Celebration
+   Emotional Design: Norman (2013) reflective level.
+   The celebration overlay is the emotional payoff
+   of completing the full five-step workflow.
+   Fogg (2003): goal-gradient effect — reward must
+   arrive immediately at goal completion.
+   ============================================ */
 function generateProfile() {
-  window.location.href = 'profile-view.html';
+  const overlay = document.getElementById('celebrate-overlay');
+  if (!overlay) {
+    // Fallback: go directly to profile view
+    window.location.href = 'profile-view.html';
+    return;
+  }
+
+  // Show the overlay
+  overlay.style.display = 'flex';
+
+  // Move focus into the overlay for accessibility
+  const title = document.getElementById('celebrate-title');
+  if (title) {
+    title.setAttribute('tabindex', '-1');
+    title.focus();
+  }
+
+  // Fire confetti
+  launchConfetti();
+}
+
+/*
+ * launchConfetti — DOM-based confetti animation
+ * Creates 90 small coloured pieces that fall from the top.
+ * Uses Career Launchpad's brand colours for consistency.
+ */
+function launchConfetti() {
+  const container = document.getElementById('confetti-container');
+  if (!container) return;
+
+  container.innerHTML = ''; // Clear any previous run
+
+  const colors = [
+    '#1a4b8c', // primary navy
+    '#0f7a4e', // secondary green
+    '#f59e0b', // accent gold
+    '#60a5fa', // light blue
+    '#34d399', // light green
+    '#fbbf24', // light gold
+    '#a78bfa', // purple accent
+    '#f87171', // coral
+  ];
+
+  const pieceCount = 90;
+
+  for (let i = 0; i < pieceCount; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+
+    const size = 6 + Math.random() * 9;         // 6–15px
+    const isCircle = Math.random() > 0.45;       // ~55% circles, rest squares
+    const duration = 1.8 + Math.random() * 2.4;  // 1.8–4.2s fall time
+    const delay = Math.random() * 1.0;           // stagger up to 1s
+    const leftPos = Math.random() * 100;         // spread across full width
+    const color = colors[Math.floor(Math.random() * colors.length)];
+
+    piece.style.cssText = `
+      left: ${leftPos}%;
+      background: ${color};
+      width: ${size}px;
+      height: ${size}px;
+      border-radius: ${isCircle ? '50%' : '2px'};
+      animation-duration: ${duration}s;
+      animation-delay: ${delay}s;
+      transform: rotate(${Math.random() * 360}deg);
+      opacity: 0.9;
+    `;
+
+    container.appendChild(piece);
+  }
+
+  // Auto-clean after all pieces have fallen
+  setTimeout(() => {
+    if (container) container.innerHTML = '';
+  }, 5500);
 }
 
 /* ============================================
@@ -660,6 +756,12 @@ function closeModal(modal) {
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
+    // Close celebration overlay if open
+    const overlay = document.getElementById('celebrate-overlay');
+    if (overlay && overlay.style.display !== 'none') {
+      overlay.style.display = 'none';
+      return;
+    }
     document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m));
   }
 });
